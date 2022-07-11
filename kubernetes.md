@@ -23,12 +23,12 @@
 2. Build, name and tag docker image for the app. The name should be: `ghcr.io/powr/sha-service`, add whatever tag you want.
 You may need `default-libmysqlclient-dev wget ruby-mysql2` packets from debian in order to start the app in docker.
 
-You also need to pass `RAILS_ENV` environment variable to be equal to `development` when building the image in order to use local database.
+You also need to pass `RAILS_ENV` as a build time argument to be equal to `development` when building the image in order to use local database.
 
-3. To start the app you'll need a up and working mysql db installation, easiest way is with docker:
+3. Let's bring an up and working mysql db installation:
 
 ```shell
-docker run --name shadb --network default -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123qwe -e MYSQL_DATABASE=shadb mysql:latest
+docker run --name shadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123qwe -e MYSQL_DATABASE=shadb mysql:latest
 ```
 
 4. You'll need a working minikube installation that works with your docker for this step, or if you have docker-desktop just enable kubernetes in the settings.
