@@ -1,8 +1,6 @@
 # Kubernetes and docker
 
-1. Install and run minikube if you don't have it already.
-If you have docker-desktop you just enable minikube in the settings.
-Now create a dockerfile for the app in this repo.
+1. Let's create a `Dockerfile` for the app in this repo.
 `sha-service` is a simple app, that will accept hex values with http post and print it out with http get requests.
 
 <details><summary>Description of the sha-service</summary>
@@ -25,5 +23,14 @@ Now create a dockerfile for the app in this repo.
 2. Build, name and tag docker image for the app. The name should be: `ghcr.io/powr/sha-service`, add whatever tag you want.
 You may need `default-libmysqlclient-dev wget ruby-mysql2` packets from debian in order to start the app in docker.
 
-3. Create a simple kubernetes deployment file for the name and tag that you've just build and forward port 4000.
+You also need to pass `RAILS_ENV` environment variable to be equal to `development` when building the image in order to use local database.
+
+3. To start the app you'll need a up and working mysql db installation, easiest way is with docker:
+
+```shell
+docker run --name shadb --network default -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123qwe -e MYSQL_DATABASE=shadb mysql:latest
+```
+
+4. You'll need a working minikube installation that works with your docker for this step, or if you have docker-desktop just enable kubernetes in the settings.
+Now create a simple kubernetes deployment for the `sha-service` docker container that you've just built and also forward port 3000.
 Make a curl post and get requests to the sha-service app, that you just deployed and see if it works.
