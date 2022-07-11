@@ -30,6 +30,13 @@ You also need to pass `RAILS_ENV` as a build time argument to be equal to `devel
 ```shell
 docker run --name shadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123qwe -e MYSQL_DATABASE=shadb mysql:latest
 ```
+Now start `sha-service` container and check if it's able to communicate with DB. For some installations you might need to perform
+
+```bash
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' shad
+```
+
+and copy it's output IP to `config/database.yml` host section. Don't forget to revert this change back because we'll need default configuration for the next step.
 
 4. You'll need a working minikube installation that works with your docker for this step, or if you have docker-desktop just enable kubernetes in the settings.
 Now create a simple kubernetes deployment for the `sha-service` docker container that you've just built and also forward port 3000.
