@@ -2,7 +2,6 @@ version: '3.3'
 
 services:
   sha_service:
-    env_file: .env
     build:
       context: .
       dockerfile: Dockerfile

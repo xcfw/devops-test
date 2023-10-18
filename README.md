@@ -6,8 +6,8 @@ This service saves **SHA** string given via **POST** request and returns it on d
 
 **Routes:**
 
- - *POST:* http(s)://(whatever_name)/api/v1/sha_manager/**:branch**/**:source**
- - *GET:* http(s)://(whatever_name)/api/v1/sha_manager/**:branch**/**:source**
+ - *POST:* http(s)://(whatever_domain)/api/v1/sha_manager/**:branch**/**:source**
+ - *GET:* http(s)://(whatever_domain)/api/v1/sha_manager/**:branch**/**:source**
 
 **Examples:**
 
