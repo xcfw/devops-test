@@ -1,8 +1,15 @@
-# Devops task
+# Devops technical test
 
-# How to use SHA-Service
+1. Fork this repo and clone the fork locally
+2. Create a new branch called `submission/leandro-test` and then perform [this docker and compose test](docker-compose.md) in your branch
+3. Commit your changes and push to your branch
+4. Continue with the [*nix knowledge test](starnix.md)
+5. Now create a pull request to the `upstream` repo's `leandro` branch
 
-This service saves **SHA** string given via **POST** request and returns it on demand via **GET**.
+## Info about Sha-Service
+
+This simple API service is used to store and review the history of the tags of the docker images in POWR. 
+It saves **SHA** string via **POST** request and returns it on demand via **GET**.
 
 **Routes:**
 
