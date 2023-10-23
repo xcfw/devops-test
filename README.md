@@ -1,3 +1,5 @@
+# Devops task
+
 # How to use SHA-Service
 
 This service saves **SHA** string given via **POST** request and returns it on demand via **GET**.
