@@ -1,5 +1,12 @@
-## 1. Run shell in sha-service container and then switch to bash
-## 1.1 Using bash loop syntax create 100 `[0-9]+.tmp` files in tmp directory.
+# 1. Run your favorite shell in a freshly create `ghcr.io/xcfw/devops-test/leandro/shaservice` container
+
+<details><summary>## 1.1 Click to see the subtask</summary>
+<p>
+
+### 1.1 Using bash loop syntax create 100x files named `[0-9]+.tmp` in tmp directory in the container.
+
+</p>
+</details>
 
 <details><summary>## 2. Click here to open second question</summary>
 <p>
