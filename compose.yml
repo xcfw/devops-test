@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 
 volumes:
   shadb_vol:
@@ -6,13 +6,6 @@ volumes:
 
 services:
   shadb:
-    image: mysql:latest
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: '123qwe'
-      MYSQL_DATABASE: 'shadb'
-    ports:
-      - '3306:3306'
     volumes:
       - shadb_vol:/var/lib/mysql
   shaservice:
@@ -21,12 +14,7 @@ services:
       PORT: ${RAILS_PORT}
       RAILS_ENV: 'development'
       RAILS_MASTER_KEY: '1234567890asdfasdfasdfasdfasdfas' 
-    build:
-      context: .
-      dockerfile: Dockerfile
     ports:
       - '${RAILS_PORT}:${RAILS_PORT}'
-    volumes:
-      - .:/opt/shaservice
     tmpfs:
       - /opt/shaservice/tmp/pids/
